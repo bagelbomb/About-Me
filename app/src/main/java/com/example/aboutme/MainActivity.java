@@ -19,25 +19,17 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    //Button doneButton;
-    //EditText editText;
-    //TextView nicknameTextView;
+    private MyName myName = new MyName("Tanner", "");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        //doneButton = findViewById(R.id.done_button);
-        //editText = findViewById(R.id.nickname_edit);
-        //nicknameTextView = findViewById(R.id.nickname_text);
+        binding.setMyName(myName);
 
         // Needs Java 8 (1.8) compatibility
-//        doneButton.setOnClickListener(e -> {
-//            addNickname(doneButton);
-//        });
-
         binding.doneButton.setOnClickListener(e -> {
             addNickname(binding.doneButton);
         });
@@ -47,18 +39,11 @@ public class MainActivity extends AppCompatActivity {
     private void addNickname(Button doneButton) {
 
         // Looks like I can't do the .apply in Java
-        //binding.apply {
-            binding.nicknameText.setText(binding.nicknameEdit.getText());
-            binding.nicknameEdit.setVisibility(View.GONE);
-            binding.doneButton.setVisibility(View.GONE);
-            binding.nicknameText.setVisibility(View.VISIBLE);
-            binding.invalidateAll();
-        //}
-
-//        nicknameTextView.setText(editText.getText());
-//        editText.setVisibility(View.GONE);
-//        doneButton.setVisibility(View.GONE);
-//        nicknameTextView.setVisibility(View.VISIBLE);
+        myName.setNickname(binding.nicknameEdit.getText().toString());
+        binding.nicknameEdit.setVisibility(View.GONE);
+        binding.doneButton.setVisibility(View.GONE);
+        binding.nicknameText.setVisibility(View.VISIBLE);
+        binding.invalidateAll();
 
         // hide the keyboard
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
