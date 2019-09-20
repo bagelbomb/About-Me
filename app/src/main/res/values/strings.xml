@@ -2,4 +2,19 @@
     <string name="app_name">About Me</string>
     <string name="name">Tanner</string>
     <string name="yellow_star">Yellow Star</string>
+    <string name="bio">
+        \n\nHi. My name is Tanner.
+        \n\nSecond line
+        \n\nThird Line
+        \n\nFourth Line
+        \n\nFifth Line
+        \n\nSixth Line
+        \n\nSeventh Line
+        \n\nEighth Line
+        \n\nNinth Line
+        \n\nTenth Line
+        \n\nEleventh Line
+        \n\nTwelve Line
+        \n\n
+    </string>
 </resources>
