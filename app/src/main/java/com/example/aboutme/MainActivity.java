@@ -2,8 +2,12 @@ package com.example.aboutme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.inputmethodservice.InputMethodService;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -36,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         editText.setVisibility(View.GONE);
         doneButton.setVisibility(View.GONE);
         nicknameTextView.setVisibility(View.VISIBLE);
+
+        // hide the keyboard
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(doneButton.getWindowToken(), 0);
     }
 
 }
